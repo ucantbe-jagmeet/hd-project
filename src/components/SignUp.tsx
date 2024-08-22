@@ -4,26 +4,21 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 const { Option } = Select;
 
-const SignUp = () => {
-     const hideBorder = {
-              border: 'none',
-              borderBottom: '1px solid #ccc',
-              borderRadius: '0',
-            } 
+const SignUp: React.FC = () => {
+  const hideBorder = {
+    border: 'none',
+    borderBottom: '1px solid #ccc',
+    borderRadius: '0',
+  };
+
   return (
     <Form layout="vertical">
-      <Form.Item name="firstName" className='pt-3'>
-        <Input
-          placeholder="First Name"
-          style={hideBorder}
-        />
+      <Form.Item name="firstName" className="pt-3">
+        <Input placeholder="First Name" style={hideBorder} />
       </Form.Item>
 
-      <Form.Item name="lastName" className='pt-3'>
-        <Input
-          placeholder="Last Name"
-          style={hideBorder}
-        />
+      <Form.Item name="lastName" className="pt-3">
+        <Input placeholder="Last Name" style={hideBorder} />
       </Form.Item>
 
       <Form.Item name="password">
@@ -36,7 +31,7 @@ const SignUp = () => {
         />
       </Form.Item>
 
-      <Form.Item name="confirmPassword" className='pt-3'>
+      <Form.Item name="confirmPassword" className="pt-3">
         <Input.Password
           placeholder="Retype Password"
           style={hideBorder}
@@ -46,20 +41,17 @@ const SignUp = () => {
         />
       </Form.Item>
 
-      <Form.Item name="contactMode" className='pt-3'>
+      <Form.Item name="contactMode" className="pt-3">
         <Select
           placeholder="Contact Mode"
-          className="border-none outline-none"
+          style={hideBorder}
         >
           <Option value="email">Email</Option>
         </Select>
       </Form.Item>
 
-      <Form.Item name="email" className='pt-3'>
-        <Input
-          placeholder="Enter Email"
-          style={hideBorder}
-        />
+      <Form.Item name="email" className="pt-3">
+        <Input placeholder="Enter Email" style={hideBorder} />
       </Form.Item>
     </Form>
   );
