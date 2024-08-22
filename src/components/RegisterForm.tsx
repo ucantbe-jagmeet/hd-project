@@ -14,7 +14,7 @@ const RegisterForm: React.FC = () => {
   const signUp = useSelector((state: RootState) => state.signUp.signUp);
 
   return (
-    <main className="w-4/5 mx-auto h-screen pt-[4rem]">
+    <main className="w-full md:w-4/5 mx-auto md:h-screen  md:pt-[4rem]">
       <div className="flex justify-between items-center">
         <Title level={1}>
           {signUp ? 'Let Us Know' : 'Fill What We know'} <span style={{ color: 'red' }}>!</span>

@@ -9,17 +9,17 @@ import { RootState } from '@/redux/store'
 const Page = () => {
   const signUp = useSelector((state: RootState) => state.signUp.signUp);
   return (
-    <main className='h-screen w-screen flex items-center justify-center'>
-        <div className='w-[55%]'>
+    <main className='h-screen w-screen flex items-center justify-center flex-col md:flex-row'>
+        <div className='md:w-[55%] w-[90%] '>
             <Image 
             src={signUp ? signUpImg: signInImg}
             width={650}
             height={600}
             alt='image'
-            className='mx-auto h-screen w-full object-contain '
+            className='mx-auto w-52 md:h-screen md:w-full object-contain  '
             />
         </div>
-        <div className='w-[45%] '>
+        <div className='md:w-[45%] w-[90%] '>
             <RegisterForm/>
         </div>
     </main>
