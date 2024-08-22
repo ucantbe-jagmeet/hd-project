@@ -28,14 +28,6 @@ const RegisterForm: React.FC = () => {
 
       {signUp ? <SignUp /> : <SignIn setSignUp={(value: boolean) => dispatch(setSignUp(value))} />}
 
-      <Form.Item className={signUp ? 'mt-10' : 'mt-5'}>
-        <Button
-          type="primary"
-          className={`w-full text-2xl py-8 ${signUp ? 'bg-[#3A244A] border-2 border-[#3A244A]' : 'text-[#3A244A] bg-white border-2 border-[#3A244A]'}`}
-        >
-          {signUp ? 'Sign Up' : 'Sign In'}
-        </Button>
-      </Form.Item>
     </main>
   );
 };

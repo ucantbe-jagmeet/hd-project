@@ -22,5 +22,10 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "node_modules/@types/webidl-conversions",
+    "node_modules/@types/whatwg-url"],
+  "compilerOptions": {
+    "types": ["node"], 
+  },
+ 
 }
