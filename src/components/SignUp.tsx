@@ -28,7 +28,7 @@ const SignUp: React.FC = () => {
     }
 
     try {
-      const response = await axios.post(`${BASE_URL}/api/auth/sign-up`, {
+      await axios.post(`${BASE_URL}/api/auth/sign-up`, {
         email,
         password,
         firstName,
@@ -36,9 +36,7 @@ const SignUp: React.FC = () => {
         contactMode,
       });
 
-      console.log('API response:', response);
-
-      message.success('Account created successfully! Please log in.');
+      message.success('Account created successfully! Please Sign in.');
     } catch (error) {
       console.error('Error:', error);
       message.error('There was an error creating your account.');
