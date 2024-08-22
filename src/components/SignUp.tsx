@@ -86,12 +86,12 @@ const SignUp: React.FC = () => {
         />
       </Form.Item>
 
-      <Form.Item name="contactMode" className="pt-3">
+      <Form.Item name="contactMode" className="pt-3" rootClassName='border-none'>
         <Select
           placeholder="Contact Mode"
           value={contactMode}
           onChange={(value) => setContactMode(value)}
-          style={hideBorder}
+          className='border-none'
         >
           <Option value="email">Email</Option>
           <Option value="phone">Phone</Option>

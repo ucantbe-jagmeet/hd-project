@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setUser } from '@/redux/UserSlice/userSlice';
+import { setForgotPassword } from '@/redux/SignUpSlice/signUpSlice';
 
 interface SignInProps {
   setSignUp: (value: boolean) => void;
@@ -67,12 +68,23 @@ const SignIn: React.FC<SignInProps> = () => {
             }
           />
         </Form.Item>
+        <Form.Item>
+          <div className="flex justify-end">
+            <Button
+            type="link"
+            className="w-fit"
+            onClick={() => dispatch(setForgotPassword(true))} 
+          >
+            Forgot Password?
+          </Button>
 
+          </div>
+        </Form.Item>
         <Form.Item className="mt-10">
           <Button
             type="primary"
             onClick={handleSign}
-            className={`w-full text-2xl py-8 bg-[#3A244A] border-2 border-[#3A244A]`}
+            className={`w-full text-2xl py-8 border-2 border-[#3A244A]  text-[#3A244A] bg-white`}
           >
             Sign In
           </Button>
