@@ -1,118 +1,42 @@
 'use client'
 import React, { useState } from 'react';
-import { Form, Input, Button, Select, Typography } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Form, Button, Typography } from 'antd';
+import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 const { Title, Text } = Typography;
-const { Option } = Select;
 
 const RegisterForm = () => {
-  const [signUp, setSignUp] = useState<boolean>(false)
+  const [signUp, setSignUp] = useState<boolean>(true);
   const hideBorder = {
-              border: 'none',
-              borderBottom: '1px solid #ccc',
-              borderRadius: '0',
-            }
+    border: 'none',
+    borderBottom: '1px solid #ccc',
+    borderRadius: '0',
+  };
+
   return (
-    <main className="w-4/5 mx-auto">
-      <div className="flex justify-between mb-4">
-        <Title level={2}>
-          Let Us Know <span style={{ color: 'red' }}>!</span>
+    <main className="w-4/5 mx-auto h-screen pt-[4rem] ">
+      <div className="flex justify-between items-center">
+        <Title level={1}>
+          {signUp ? "Let Us Know" : "Fill What We know"} <span style={{ color: 'red' }}>!</span>
         </Title>
-        <Button type="link" onClick={()=> setSignUp(!signUp)}>
-          <Text strong>
+        <Button type="link" onClick={() => setSignUp(!signUp)}>
+          <Text strong className='text-xl'>
             Sign <span style={{ color: 'red' }}>{signUp ? 'In' : 'Up'}</span>
           </Text>
         </Button>
       </div>
 
-     {
-      signUp ? (<Form layout="vertical">
-        <Form.Item name="firstName" label="First Name">
-          <Input
-            placeholder="First Name"
-            style={hideBorder}
-          />
-        </Form.Item>
+      {signUp ? <SignUp /> : <SignIn setSignUp={setSignUp} />}
 
-        <Form.Item name="lastName" label="Last Name">
-          <Input
-            placeholder="Last Name"
-            style={hideBorder}
-          />
-        </Form.Item>
-
-        <Form.Item name="password" label="Set Password">
-          <Input.Password
-            placeholder="Set Password"
-            style={hideBorder}
-            iconRender={(visible) =>
-              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-            }
-          />
-        </Form.Item>
-
-        <Form.Item name="confirmPassword" label="Retype Password">
-          <Input.Password
-            placeholder="Retype Password"
-            style={hideBorder}
-            iconRender={(visible) =>
-              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-            }
-          />
-        </Form.Item>
-
-       <Form.Item name="contactMode" label="Contact Mode">
-        <Select
-          defaultValue="email"
-          className="border-none outline-none"
+      <Form.Item className={ signUp ? 'mt-10' : 'mt-5'}>
+        <Button
+          type="primary"
+          className={`w-full text-2xl py-8  ${signUp ? 'bg-[#3A244A] border-2 border-[#3A244A]' : 'text-[#3A244A]  bg-white border-2 border-[#3A244A]'}`}
         >
-          <Option value="email">Email</Option>
-          <Option value="phone">Phone</Option>
-        </Select>
+          {signUp ? 'Sign Up' : 'Sign In'}
+        </Button>
       </Form.Item>
-
-
-        <Form.Item name="email" label="Enter Email">
-          <Input
-            placeholder="Enter Email"
-            style={hideBorder}
-          />
-        </Form.Item>
-
-        
-      </Form>) : (
-        <Form layout="vertical">
-          <Form.Item name="email" label="Enter Email">
-              <Input
-                  placeholder="Enter Email"
-                  style={hideBorder}
-              />
-          </Form.Item>
-           <Form.Item name="password" label="Password">
-          <Input.Password
-            placeholder="Password"
-            style={hideBorder}
-            iconRender={(visible) =>
-              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-            }
-          />
-        </Form.Item>
-        </Form>
-      )
-     }
-
-             <Form.Item>
-          <Button
-            type="primary"
-            block
-          >
-            {
-              signUp ? 'Sign Up' : 'Sign In'
-            }
-          </Button>
-        </Form.Item>
-    
     </main>
   );
 };

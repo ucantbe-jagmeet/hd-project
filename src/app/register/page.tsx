@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 
 const Page = () => {
+
   return (
     <main className='h-screen w-screen flex items-center justify-center'>
         <div className='w-[55%]'>
