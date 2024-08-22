@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Form, Input, Select, Button, message } from 'antd';
 import axios from 'axios';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { BASE_URL } from '@/utils/url';
 
 const { Option } = Select;
 
@@ -28,7 +27,7 @@ const SignUp: React.FC = () => {
     }
 
     try {
-      await axios.post(`${BASE_URL}/api/auth/sign-up`, {
+      await axios.post(`/api/auth/sign-up`, {
         email,
         password,
         firstName,
