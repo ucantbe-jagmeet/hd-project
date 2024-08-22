@@ -69,11 +69,11 @@ const SignIn: React.FC<SignInProps> = () => {
           />
         </Form.Item>
         <Form.Item>
-          <div className="flex justify-end">
+          <div className="flex justify-end text-[#3A244A]">
             <Button
             type="link"
             className="w-fit"
-            onClick={() => dispatch(setForgotPassword(true))} 
+            onClick={() => dispatch(setForgotPassword(true))}
           >
             Forgot Password?
           </Button>

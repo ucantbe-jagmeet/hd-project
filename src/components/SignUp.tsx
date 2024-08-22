@@ -107,7 +107,7 @@ const SignUp: React.FC = () => {
         />
       </Form.Item>
 
-      <Form.Item>
+      <Form.Item className="mt-10">
         <Button type="primary" block onClick={handleSignUp} className={`w-full text-2xl py-8 bg-[#3A244A] border-2 border-[#3A244A]`}>
           Sign Up
         </Button>
