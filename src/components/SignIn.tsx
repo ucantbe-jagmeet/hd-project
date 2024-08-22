@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Button, Form, Input, message } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setUser } from '@/redux/UserSlice/userSlice';
 
 interface SignInProps {
   setSignUp: (value: boolean) => void;
@@ -19,7 +21,8 @@ interface User {
 const SignIn: React.FC<SignInProps> = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const Router = useRouter();
+  const dispatch = useDispatch();
   const hideBorder = {
     border: 'none',
     borderBottom: '1px solid #ccc',
@@ -30,10 +33,10 @@ const SignIn: React.FC<SignInProps> = () => {
     try {
       const response = await axios.post('/api/auth/sign-in', { email, password });
       const { user, token } = response.data;
-
       localStorage.setItem('token', token);
+      dispatch(setUser(user));
+      Router.push('/'); 
       message.success(`Welcome back, ${user.firstName}!`);
-      console.log('User data:', user);
 
     } catch (error) {
       message.error('Invalid email or password');

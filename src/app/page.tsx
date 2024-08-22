@@ -1,6 +1,20 @@
+'use client'
+import UserProfile from '@/components/UserProfile';
+import { redirect } from 'next/navigation';
+import React, { useEffect } from 'react'
 
-export default function Home() {
-  return <main className="">
-    Hello World
-    </main>;
+const Home = () => {
+   useEffect(() => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        redirect('/register'); 
+      }
+    }, []);
+  return (
+    <div>
+      <UserProfile />
+    </div>
+  )
 }
+
+export default Home

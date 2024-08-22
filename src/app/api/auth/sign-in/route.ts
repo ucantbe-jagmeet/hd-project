@@ -11,19 +11,15 @@ export const POST = async (req: NextRequest) => {
 
   try {
     const { email, password } = await req.json();
-    console.log('email', email, password);
-
-    // Find the user by email
     const user = await User.findOne({ email });
 
     if (!user) {
       return NextResponse.json({ message: 'Invalid email or password' }, { status: 401 });
     }
 
-    // Check password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return NextResponse.json({ message: 'Invalid email or password' }, { status: 401 });
+      return NextResponse.json({ message: 'user does not match' }, { status: 401 });
     }
     const token = jwt.sign(
       { id: user._id, email: user.email }, 
