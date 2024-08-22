@@ -30,8 +30,9 @@ const SignIn: React.FC<SignInProps> = () => {
   };
 
   const handleSign = async () => {
+    console.log('sign', window.location.origin)
     try {
-      const response = await axios.post('/api/auth/sign-in', { email, password });
+      const response = await axios.post(`${window.location.origin}/api/auth/sign-in`, { email, password });
       const { user, token } = response.data;
       localStorage.setItem('token', token);
       dispatch(setUser(user));

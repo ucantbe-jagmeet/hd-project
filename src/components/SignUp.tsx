@@ -27,7 +27,7 @@ const SignUp: React.FC = () => {
     }
 
     try {
-      await axios.post(`/api/auth/sign-up`, {
+      await axios.post(`${window.location.origin}/api/auth/sign-up`, {
         email,
         password,
         firstName,
